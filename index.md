@@ -48,12 +48,22 @@ sudo cp fstab fsatb.orig
 
 Now edit fstab (using e.g. ```sudo vim fstab```) by adding the following at the end of the file:
 
+#### For kernels 4.12 or earlier
 ```
 # Settings for mounting the NAS
 //imagingnas.math.kth.se/data /mnt/imagingnas/data cifs credentials=/home/admin/.smbcredentials,iocharset=utf8,gid=1001,uid=1001,file_mode=0777,dir_mode=0777 0 0
 //imagingnas.math.kth.se/documents /mnt/imagingnas/documents cifs credentials=/home/admin/.smbcredentials,iocharset=utf8,gid=1001,uid=1001,file_mode=0777,dir_mode=0777 0 0
 //imagingnas.math.kth.se/software /mnt/imagingnas/software cifs credentials=/home/admin/.smbcredentials,iocharset=utf8,gid=1001,uid=1001,file_mode=0777,dir_mode=0777 0 0
 //imagingnas.math.kth.se/Reference /mnt/imagingnas/Reference cifs credentials=/home/admin/.smbcredentials,iocharset=utf8,gid=1001,uid=1001,file_mode=0777,dir_mode=0777 0 0 
+```
+
+### For kernels 4.13 or later
+```
+# Settings for mounting the NAS
+//imagingnas.math.kth.se/data /mnt/imagingnas/data cifs credentials=/home/admin/.smbcredentials,iocharset=utf8,gid=1001,uid=1001,file_mode=0777,dir_mode=0777,vers=1.0 0 0
+//imagingnas.math.kth.se/documents /mnt/imagingnas/documents cifs credentials=/home/admin/.smbcredentials,iocharset=utf8,gid=1001,uid=1001,file_mode=0777,dir_mode=0777,vers=1.0 0 0
+//imagingnas.math.kth.se/software /mnt/imagingnas/software cifs credentials=/home/admin/.smbcredentials,iocharset=utf8,gid=1001,uid=1001,file_mode=0777,dir_mode=0777,vers=1.0 0 0
+//imagingnas.math.kth.se/Reference /mnt/imagingnas/Reference cifs credentials=/home/admin/.smbcredentials,iocharset=utf8,gid=1001,uid=1001,file_mode=0777,dir_mode=0777,vers=1.0 0 0 
 ```
 
 ### Create mount point directories
